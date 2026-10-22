@@ -5,6 +5,9 @@
 Most agent stacks optimize what a model can do. We build the layer that makes
 what it *did* checkable.
 
+
+**Launch article (BS):** [Agent koji ne laže: dokaz, imunitet i poštenje](https://gamai.io/blog/evidence-first-agent-runtime.html)
+
 ## Flagship
 
 ### [evidence-first-agent-runtime](https://github.com/gamai-io/evidence-first-agent-runtime)
