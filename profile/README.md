@@ -27,9 +27,9 @@ cd evidence-first-agent-runtime && ./repro.sh
 | Project | What it is |
 |---|---|
 | [gama-lang](https://github.com/gamai-io/gama-lang) | GAMA-L: AI-first polymorphic language + GAMA-OS (AI-native terminal OS) |
-| [gama-hifz](https://github.com/renatoschust-dot/gama-hifz) | Self-hosted Qur'an study app: 114 surahs / 6236 verses, audio, translation, TTS, offline ASR check |
-| [gamai-skills](https://github.com/renatoschust-dot/gamai-skills) | 992 open-source agent skills, CI-validated on every push |
-| [gama-agent](https://github.com/renatoschust-dot/gama-agent) | Local agent model (GGUF) |
+| [gama-hifz](https://github.com/gamai-io/gama-hifz) | Self-hosted Qur'an study app: 114 surahs / 6236 verses, audio, translation, TTS, offline ASR check |
+| [gamai-skills](https://github.com/gamai-io/gamai-skills) | 992 open-source agent skills, CI-validated on every push |
+| [gama-agent](https://github.com/gamai-io/gama-agent) | Local agent model (GGUF) |
 
 ## Principles
 
@@ -39,6 +39,8 @@ cd evidence-first-agent-runtime && ./repro.sh
 - **Price the isolation.** bubblewrap → runc → seccomp → gVisor, with latency recorded.
 
 ## Links
+
+- Admin: [@gamai-io-user](https://github.com/gamai-io-user)
 
 - Website: [gamai.io](https://gamai.io)
 - Contact: admin@gamai.io
