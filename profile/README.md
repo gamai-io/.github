@@ -5,34 +5,39 @@
 Most agent stacks optimize what a model can do. We build the layer that makes
 what it *did* checkable.
 
-
 **Launch article (BS):** [Agent koji ne laže: dokaz, imunitet i poštenje](https://gamai.io/blog/evidence-first-agent-runtime.html)
 
-## Flagship
+## Trust layer
 
-### [evidence-first-agent-runtime](https://github.com/gamai-io/evidence-first-agent-runtime)
-
-Three dependency-free components, MIT, one command to reproduce:
-
-| Component | What it answers | Measured on our corpus |
+| Project | What it is | Signal |
 |---|---|---|
-| **proofgate** | Did it actually happen? | `confirmed` / `refuted` / `unverified`; 10 confirmed + 2 refuted + 0 unverified; tamper-evident SHA-256 |
-| **agent-immunity** | Has this attack been seen before? | injection success 100% → **0%** in 3 rounds; utility 100%; false denial 0%; ~1.3 ms |
-| **crossnode-bench** | Does the agent lie about other machines? | demo: **46/48**, names **2 false successes** that a naive scorer counts as passes |
+| [gamai-trust](https://github.com/gamai-io/gamai-trust) | Aggregate API + CLI + MCP for the three trust checks | 5/5 tests, 3 demos, offline |
+| [sigil](https://github.com/gamai-io/sigil) | Proof-carrying execution profile: grants, receipts, signed bundles | v0.22.1, conformance suite |
+| [gamai-guard](https://github.com/gamai-io/gamai-guard) | Multilingual prompt-injection guard: lexical → analytic → embedding | **29/30 blocked, 0/10 false positives** (blind DE/FR/ES/BS) |
+| [crossnode-bench](https://github.com/gamai-io/crossnode-bench) | Claim-vs-truth benchmark across nodes; false success is a metric | demo **46/48, 2 false successes detected** |
+| [polymorph](https://github.com/gamai-io/polymorph) | Effect leases, pinned-hash execution and signed execution bundles | 100% out-of-lease denial, 0% benign denial |
 
 ```bash
-git clone https://github.com/gamai-io/evidence-first-agent-runtime
-cd evidence-first-agent-runtime && ./repro.sh
+git clone https://github.com/gamai-io/gamai-trust
+cd gamai-trust && ./repro.sh
 ```
 
-## More from gamAI
+## Applied
+
+| Project | What it is | Signal |
+|---|---|---|
+| [floor-copilot](https://github.com/gamai-io/floor-copilot) | Evidence-gated invoice intake for industrial distributors | live demo, 21 s/invoice, arithmetic + VAT gate |
+
+Live demo: https://contabo-vps.tailf8e6be.ts.net/floor/
+
+## Platform
 
 | Project | What it is |
 |---|---|
-| [gama-lang](https://github.com/gamai-io/gama-lang) | GAMA-L: AI-first polymorphic language + GAMA-OS (AI-native terminal OS) |
-| [gama-hifz](https://github.com/gamai-io/gama-hifz) | Self-hosted Qur'an study app: 114 surahs / 6236 verses, audio, translation, TTS, offline ASR check |
-| [gamai-skills](https://github.com/gamai-io/gamai-skills) | 992 open-source agent skills, CI-validated on every push |
+| [gama-lang](https://github.com/gamai-io/gama-lang) | GAMA-L: AI-first polymorphic language + GAMA-OS |
+| [gamai-skills](https://github.com/gamai-io/gamai-skills) | Open-source agent skills, CI-validated on every push |
 | [gama-agent](https://github.com/gamai-io/gama-agent) | Local agent model (GGUF) |
+| [gama-hifz](https://github.com/gamai-io/gama-hifz) | Self-hosted Qur'an study app: 114 surahs, audio, translation, offline ASR check |
 
 ## Principles
 
@@ -43,10 +48,8 @@ cd evidence-first-agent-runtime && ./repro.sh
 
 ## Links
 
-- Admin: [@gamai-io-user](https://github.com/gamai-io-user)
-
 - Website: [gamai.io](https://gamai.io)
 - Contact: admin@gamai.io
-- License: MIT (per repository)
+- License: MIT or Apache-2.0 per repository
 
 *Small-N results are labeled; nothing here is a state-of-the-art claim.*
