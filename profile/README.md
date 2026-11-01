@@ -1,68 +1,52 @@
-# gamAI
+# gamAI — trust layer for AI agents
 
-**Open agent infrastructure: proof, immunity, honesty.**
+Agents that claim success for work that failed are a liability. gamAI makes each step **decidable before the model runs**, **isolated while it runs**, and **provable after it runs**.
 
-Most agent stacks optimize what a model can do. We build the layer that makes
-what it *did* checkable.
+🌐 [gamai.io](https://gamai.io) · 📊 [Benchmarks](https://gamai.io/benchmarks) · 📦 [Open source](https://gamai.io/opensource) · ✉️ info@gamai.io
 
-**Launch article (BS):** [Agent koji ne laže: dokaz, imunitet i poštenje](https://gamai.io/blog/evidence-first-agent-runtime.html)
+## Architecture
 
-**Live evidence dashboard:** [gamai-io.github.io/demo](https://gamai-io.github.io/demo/)
-
-## Trust layer
-
-| Project | What it is | Signal |
-|---|---|---|
-| [gamai-trust](https://github.com/gamai-io/gamai-trust) | Aggregate API + CLI + MCP for the three trust checks | 5/5 tests, 3 demos, offline |
-| [sigil](https://github.com/gamai-io/sigil) | Proof-carrying execution profile: grants, receipts, signed bundles | v0.22.1, conformance suite |
-| [gamai-guard](https://github.com/gamai-io/gamai-guard) | Multilingual prompt-injection guard: lexical → analytic → embedding | **29/30 blind; 79.6% block / 0.1% FP on 6,900 (LUMI)** |
-| [crossnode-bench](https://github.com/gamai-io/crossnode-bench) | Claim-vs-truth benchmark across nodes; false success is a metric | **25,600 trials** on LUMI-C, 0 false-success on read/action/cross |
-| [polymorph](https://github.com/gamai-io/polymorph) | Effect leases, pinned-hash execution and signed execution bundles | 100% out-of-lease denial, 0% benign denial |
-
-```bash
-git clone https://github.com/gamai-io/gamai-trust
-cd gamai-trust && ./repro.sh
+```mermaid
+flowchart LR
+  U[User / API key] --> G{Gate<br/>deterministic}
+  G -- block --> X[Refuse + reason]
+  G -- cache --> C[Cached answer]
+  G -- sql/math --> DB[(DB / calc)]
+  G -- agent --> M[Model<br/>OpenAI-compatible]
+  M --> T[Tools: web, files,<br/>python sandbox, SQL]
+  T --> S[Isolation<br/>srt / bwrap / microVM]
+  S --> E[Evidence<br/>JSONL + SHA-256 + receipts]
+  E --> V[Verify<br/>claims vs observed state]
+  V --> U
 ```
 
-## Applied
+- **Gate** — risk, cache, math and routing decided without spending tokens.
+- **Motor** — any OpenAI-compatible endpoint (hosted or local vLLM/Ollama).
+- **Tools** — MCP servers, function calling, sandboxed execution.
+- **Evidence** — append-only logs, hashes, receipts; “done” requires proof.
 
-| Project | What it is | Signal |
-|---|---|---|
-| [floor-copilot](https://github.com/gamai-io/floor-copilot) | Evidence-gated invoice intake for industrial distributors | live demo, 21 s/invoice, arithmetic + VAT gate |
-| [rush](https://github.com/gamai-io/evidence-first-agent-runtime/tree/main/rush) | Containment-first web agent: guard → plan → Docker/Vultr sandbox → evidence ledger | live on Vultr, 6 s/run, injection + destructive refused |
+## Core vs. applications
 
-Live demos: [Floor Copilot](https://gamai.io) · [rush on Vultr](https://gamai.io)
+| Layer | What it is | Repos |
+| --- | --- | --- |
+| **Core (reusable)** | gate, isolation, evidence, node trust, determinism, benchmarks | `evidence-gate-runtime`, `gama-sandbox`, `gnp-trust`, `dsc`, `dag`, `sigil` |
+| **Measurement** | honesty under load, GUI grounding, tool calling | `crossnode-bench` |
+| **Toolkits** | Python trust primitives, prompt-injection guard | `gamai-trust`, `gamai-guard` |
+| **Applications** | chat, experts, OCR, estimates, research (hosted at gamai.io) | private / hosted |
 
-## Platform
-
-| Project | What it is |
-|---|---|
-| [gama-lang](https://github.com/gamai-io/gama-lang) | GAMA-L: AI-first polymorphic language + GAMA-OS |
-| [gamai-skills](https://github.com/gamai-io/gamai-skills) | Open-source agent skills, CI-validated on every push |
-| [gama-agent](https://github.com/gamai-io/gama-agent) | Local agent model (GGUF) |
-| [gama-hifz](https://github.com/gamai-io/gama-hifz) | Self-hosted Qur'an study app: 114 surahs, audio, translation, offline ASR check |
+Core stays domain-agnostic; verticals consume it as a library or a service.
 
 ## Principles
 
-- **Refusal is a feature.** "I could not confirm that" beats a confident lie.
-- **A block is memory.** Every stopped attack should make the next variant cheaper to stop.
-- **Measure the claim, not the answer.** False success is a metric.
-- **Price the isolation.** bubblewrap → runc → seccomp → gVisor, with latency recorded.
+1. **Evidence before assertion** — every claim is checkable.
+2. **Least privilege** — destructive actions gated; no secrets in code or logs.
+3. **Determinism where possible** — same input, same bytes, on every node.
+4. **Measured, not marketed** — benchmarks state method and reproduction.
 
-## Links
+## Start here
 
-- Website: [gamai.io](https://gamai.io)
-- Contact: admin@gamai.io
-- License: MIT or Apache-2.0 per repository
+- [Full benchmark suite](https://gamai.io/benchmarks) — why, how, reproduce.
+- [Open source overview](https://gamai.io/opensource) — `pip install` / clone per repo.
+- [Security policy](SECURITY.md) — report vulnerabilities to security@gamai.io.
 
-*Small-N results are labeled; nothing here is a state-of-the-art claim.*
-
-
-> **Install:** `pip install gamai-trust`  ·  `pip install gamai-guard`  ·  `pip install sigil-profile`
-
-## Validation
-- **EuroHPC LUMI-C:** crossnode benchmark — 25,600 claim-vs-truth trials across 8 nodes; 0 false-success on read/action/cross.
-
-## Live demo
-
-- https://demo.gamai.io/ — measured evidence dashboard (reproducible)
+Apache-2.0 throughout.
