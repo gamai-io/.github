@@ -15,7 +15,7 @@ what it *did* checkable.
 |---|---|---|
 | [gamai-trust](https://github.com/gamai-io/gamai-trust) | Aggregate API + CLI + MCP for the three trust checks | 5/5 tests, 3 demos, offline |
 | [sigil](https://github.com/gamai-io/sigil) | Proof-carrying execution profile: grants, receipts, signed bundles | v0.22.1, conformance suite |
-| [gamai-guard](https://github.com/gamai-io/gamai-guard) | Multilingual prompt-injection guard: lexical → analytic → embedding | **29/30 blocked, 0/10 false positives** (blind DE/FR/ES/BS) |
+| [gamai-guard](https://github.com/gamai-io/gamai-guard) | Multilingual prompt-injection guard: lexical → analytic → embedding | **29/30 blind; 79.6% block / 0.1% FP on 6,900 (LUMI)** |
 | [crossnode-bench](https://github.com/gamai-io/crossnode-bench) | Claim-vs-truth benchmark across nodes; false success is a metric | **25,600 trials** on LUMI-C, 0 false-success on read/action/cross |
 | [polymorph](https://github.com/gamai-io/polymorph) | Effect leases, pinned-hash execution and signed execution bundles | 100% out-of-lease denial, 0% benign denial |
 
