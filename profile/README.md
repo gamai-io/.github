@@ -31,7 +31,7 @@ cd gamai-trust && ./repro.sh
 | [floor-copilot](https://github.com/gamai-io/floor-copilot) | Evidence-gated invoice intake for industrial distributors | live demo, 21 s/invoice, arithmetic + VAT gate |
 | [rush](https://github.com/gamai-io/evidence-first-agent-runtime/tree/main/rush) | Containment-first web agent: guard → plan → Docker/Vultr sandbox → evidence ledger | live on Vultr, 6 s/run, injection + destructive refused |
 
-Live demos: [Floor Copilot](https://contabo-vps.tailf8e6be.ts.net/floor/) · [rush on Vultr](http://45.76.91.239:8098/)
+Live demos: [Floor Copilot](https://gamai.io) · [rush on Vultr](https://gamai.io)
 
 ## Platform
 
