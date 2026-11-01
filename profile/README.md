@@ -54,3 +54,6 @@ Live demos: [Floor Copilot](https://contabo-vps.tailf8e6be.ts.net/floor/) · [ru
 - License: MIT or Apache-2.0 per repository
 
 *Small-N results are labeled; nothing here is a state-of-the-art claim.*
+
+
+> **Install:** `pip install gamai-trust`  ·  `pip install gamai-guard`  ·  `pip install sigil-profile`
