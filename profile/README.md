@@ -62,3 +62,7 @@ Live demos: [Floor Copilot](https://contabo-vps.tailf8e6be.ts.net/floor/) · [ru
 
 ## Validation
 - **EuroHPC LUMI-C:** crossnode benchmark — 25,600 claim-vs-truth trials across 8 nodes; 0 false-success on read/action/cross.
+
+## Live demo
+
+- https://demo.gamai.io/ — measured evidence dashboard (reproducible)
