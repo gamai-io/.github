@@ -7,6 +7,8 @@ what it *did* checkable.
 
 **Launch article (BS):** [Agent koji ne laže: dokaz, imunitet i poštenje](https://gamai.io/blog/evidence-first-agent-runtime.html)
 
+**Live evidence dashboard:** [gamai-io.github.io/demo](https://gamai-io.github.io/demo/)
+
 ## Trust layer
 
 | Project | What it is | Signal |
