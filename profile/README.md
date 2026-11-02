@@ -49,4 +49,4 @@ Core stays domain-agnostic; verticals consume it as a library or a service.
 - [Open source overview](https://gamai.io/opensource) — `pip install` / clone per repo.
 - [Security policy](SECURITY.md) — report vulnerabilities to security@gamai.io.
 
-Apache-2.0 throughout.
+License: Apache-2.0 for core repositories; some companion repos are MIT — see `LICENSE` in each repository.
