@@ -28,7 +28,7 @@ flowchart LR
 ## Status (2026-11-05)
 
 ### Product
-- **ProofGate Runtime v0.1** — [`proofgate-runtime`](https://github.com/gamai-io/proofgate-runtime) — claim verification (`confirmed/refuted/unverified`), signed receipts (SHA-256 + optional HMAC), lite injection pre-filter, CLI and MCP server. Stdlib only. *Not independently audited; no PyPI yet.*
+- **ProofGate Runtime v0.1** — [`proofgate-runtime`](https://github.com/gamai-io/proofgate-runtime) · [PyPI](https://pypi.org/project/proofgate-runtime/) — claim verification (`confirmed/refuted/unverified`), signed receipts (SHA-256 + optional HMAC), lite injection pre-filter, CLI and MCP server. Stdlib only. *Not independently audited; PyPI 0.1.0: `pip install proofgate-runtime`.*
 - **SIGIL/1** — [`sigil`](https://github.com/gamai-io/sigil) — proof-carrying execution: grants, receipts, anchor, MCP/A2A middleware; 6-container production reference.
 - **Measurement** — [`crossnode-bench`](https://github.com/gamai-io/crossnode-bench) — 25,600 controlled claim-vs-truth trials; 93.75% pass; 6.25% planted lies flagged; 0 false-success on read/action/cross. *Controlled detection test, not a field rate.*
 - **Guard** — [`gamai-guard`](https://github.com/gamai-io/gamai-guard) — multilingual prompt-injection cascade (29/30 blind attacks, 0/10 FP; 6,900 corpus 79.6%/0.1%).
