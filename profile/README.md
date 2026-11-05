@@ -34,7 +34,7 @@ flowchart LR
 - **Guard** — [`gamai-guard`](https://github.com/gamai-io/gamai-guard) — multilingual prompt-injection cascade (29/30 blind attacks, 0/10 FP; 6,900 corpus 79.6%/0.1%).
 - **Isolation** — [`gama-sandbox`](https://github.com/gamai-io/gama-sandbox) + [`gnp-trust`](https://github.com/gamai-io/gnp-trust) — srt/bwrap/microVM isolation, node token gate, leases with fencing.
 - **Deterministic core** — [`dsc`](https://github.com/gamai-io/dsc), [`gama-fastpath`](https://github.com/gamai-io/gama-fastpath), [`gama-offline`](https://github.com/gamai-io/gama-offline) — normalize, cache, risk gate, money math.
-- **Case study** — [`floor-copilot`](https://github.com/gamai-io/floor-copilot) — invoice intake with 17% VAT gate; real industrial workflow, not a separate product.
+- **Case study** — [`floor-copilot`](https://github.com/gamai-io/floor-copilot) — invoice intake with 17% VAT gate; synthetic 100-case gate benchmark: 40/40 valid verified, 30/30 arithmetic errors caught, 0 false verifications. OCR name mismatch remains a documented gap.
 
 ### Experimental
 `gama-lang`, `agentmujo-training`, `gama-hifz`, `gamai-evals`, `polymorph`, `dag`, `risk-calib`, `gamai-skills`.
@@ -52,6 +52,8 @@ Core stays domain-agnostic; verticals consume it as a library or a service.
 4. **Measured, not marketed** — benchmarks state method and reproduction.
 
 ## Start here
+
+- [Security audit (internal, 2026-11-05)](https://github.com/gamai-io/.github/blob/main/security/2026-11-05-audit.md) — internal review, **not** an independent external audit.
 
 - [Full benchmark suite](https://gamai.io/benchmarks) — why, how, reproduce.
 - [ProofGate Runtime v0.1](https://github.com/gamai-io/proofgate-runtime) — start here: claims, receipts, MCP.
