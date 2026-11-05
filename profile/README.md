@@ -25,14 +25,22 @@ flowchart LR
 - **Tools** — MCP servers, function calling, sandboxed execution.
 - **Evidence** — append-only logs, hashes, receipts; “done” requires proof.
 
-## Core vs. applications
+## Status (2026-11-05)
 
-| Layer | What it is | Repos |
-| --- | --- | --- |
-| **Core (reusable)** | gate, isolation, evidence, node trust, determinism, benchmarks | `evidence-gate-runtime`, `gama-sandbox`, `gnp-trust`, `dsc`, `dag`, `sigil` |
-| **Measurement** | honesty under load, GUI grounding, tool calling | `crossnode-bench` |
-| **Toolkits** | Python trust primitives, prompt-injection guard | `gamai-trust`, `gamai-guard` |
-| **Applications** | chat, experts, OCR, estimates, research (hosted at gamai.io) | private / hosted |
+### Product
+- **ProofGate Runtime v0.1** — [`proofgate-runtime`](https://github.com/gamai-io/proofgate-runtime) — claim verification (`confirmed/refuted/unverified`), signed receipts (SHA-256 + optional HMAC), lite injection pre-filter, CLI and MCP server. Stdlib only. *Not independently audited; no PyPI yet.*
+- **SIGIL/1** — [`sigil`](https://github.com/gamai-io/sigil) — proof-carrying execution: grants, receipts, anchor, MCP/A2A middleware; 6-container production reference.
+- **Measurement** — [`crossnode-bench`](https://github.com/gamai-io/crossnode-bench) — 25,600 controlled claim-vs-truth trials; 93.75% pass; 6.25% planted lies flagged; 0 false-success on read/action/cross. *Controlled detection test, not a field rate.*
+- **Guard** — [`gamai-guard`](https://github.com/gamai-io/gamai-guard) — multilingual prompt-injection cascade (29/30 blind attacks, 0/10 FP; 6,900 corpus 79.6%/0.1%).
+- **Isolation** — [`gama-sandbox`](https://github.com/gamai-io/gama-sandbox) + [`gnp-trust`](https://github.com/gamai-io/gnp-trust) — srt/bwrap/microVM isolation, node token gate, leases with fencing.
+- **Deterministic core** — [`dsc`](https://github.com/gamai-io/dsc), [`gama-fastpath`](https://github.com/gamai-io/gama-fastpath), [`gama-offline`](https://github.com/gamai-io/gama-offline) — normalize, cache, risk gate, money math.
+- **Case study** — [`floor-copilot`](https://github.com/gamai-io/floor-copilot) — invoice intake with 17% VAT gate; real industrial workflow, not a separate product.
+
+### Experimental
+`gama-lang`, `agentmujo-training`, `gama-hifz`, `gamai-evals`, `polymorph`, `dag`, `risk-calib`, `gamai-skills`.
+
+### Legacy / not recommended
+`gama-shard`, `gama-retrieval`, `gama-agent` — kept for reference; prefer the product paths above.
 
 Core stays domain-agnostic; verticals consume it as a library or a service.
 
@@ -46,7 +54,8 @@ Core stays domain-agnostic; verticals consume it as a library or a service.
 ## Start here
 
 - [Full benchmark suite](https://gamai.io/benchmarks) — why, how, reproduce.
-- [Open source overview](https://gamai.io/opensource) — `pip install` / clone per repo.
+- [ProofGate Runtime v0.1](https://github.com/gamai-io/proofgate-runtime) — start here: claims, receipts, MCP.
+- [Open source overview](https://gamai.io/opensource) — clone per repo.
 - [Security policy](SECURITY.md) — report vulnerabilities to security@gamai.io.
 
-License: Apache-2.0 for core repositories; some companion repos are MIT — see `LICENSE` in each repository.
+License: Apache-2.0 for core repositories; some companion repos are MIT — see `LICENSE` in each repository. `proofgate-runtime` v0.1 is not independently audited.
