@@ -34,7 +34,7 @@ flowchart LR
 - **Guard** — [`gamai-guard`](https://github.com/gamai-io/gamai-guard) — multilingual prompt-injection cascade (29/30 blind attacks, 0/10 FP; 6,900 corpus 79.6%/0.1%).
 - **Isolation** — [`gama-sandbox`](https://github.com/gamai-io/gama-sandbox) + [`gnp-trust`](https://github.com/gamai-io/gnp-trust) — srt/bwrap/microVM isolation, node token gate, leases with fencing.
 - **Deterministic core** — [`dsc`](https://github.com/gamai-io/dsc), [`gama-fastpath`](https://github.com/gamai-io/gama-fastpath), [`gama-offline`](https://github.com/gamai-io/gama-offline) — normalize, cache, risk gate, money math.
-- **Case study** — [`floor-copilot`](https://github.com/gamai-io/floor-copilot) — invoice intake with 17% VAT gate; synthetic 100-case gate benchmark: 40/40 valid verified, 30/30 arithmetic errors caught, 0 false verifications. OCR name mismatch remains a documented gap.
+- **Case study** — [`floor-copilot`](https://github.com/gamai-io/floor-copilot) — invoice intake with 17% VAT gate; synthetic 100-case gate benchmark: 40/40 valid, 30/30 arithmetic errors caught, 0 false verifications; plus 15 GAMA-style invoices with real Tesseract OCR: 8/8 valid, 4/4 arithmetic errors caught, 0 false verifications. OCR name mismatch remains a documented gap.
 
 ### Experimental
 `gama-lang`, `agentmujo-training`, `gama-hifz`, `gamai-evals`, `polymorph`, `dag`, `risk-calib`, `gamai-skills`.
