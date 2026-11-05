@@ -28,7 +28,7 @@ flowchart LR
 ## Status (2026-11-05)
 
 ### Product
-- **ProofGate Runtime v0.1** — [`proofgate-runtime`](https://github.com/gamai-io/proofgate-runtime) · [PyPI](https://pypi.org/project/proofgate-runtime/) — claim verification (`confirmed/refuted/unverified`), signed receipts (SHA-256 + optional HMAC), lite injection pre-filter, CLI and MCP server. Stdlib only. *Not independently audited; PyPI 0.1.0: `pip install proofgate-runtime`.*
+- **ProofGate Runtime v0.2** — [`proofgate-runtime`](https://github.com/gamai-io/proofgate-runtime) · [PyPI](https://pypi.org/project/proofgate-runtime/) — claim verification (`confirmed/refuted/unverified`), signed receipts (HMAC-SHA256; unsigned rejected by default), lite injection pre-filter, CLI and MCP server. Stdlib only. *Not independently audited; PyPI 0.2.0: `pip install proofgate-runtime`. External audit RFP is open.*
 - **SIGIL/1** — [`sigil`](https://github.com/gamai-io/sigil) — proof-carrying execution: grants, receipts, anchor, MCP/A2A middleware; 6-container production reference.
 - **Measurement** — [`crossnode-bench`](https://github.com/gamai-io/crossnode-bench) — 25,600 controlled claim-vs-truth trials; 93.75% pass; 6.25% planted lies flagged; 0 false-success on read/action/cross. *Controlled detection test, not a field rate.* · [dataset v0.1.0](https://github.com/gamai-io/crossnode-bench/tree/main/dataset) · [preprint](https://github.com/gamai-io/crossnode-bench/blob/main/paper/preprint.pdf)
 - **Guard** — [`gamai-guard`](https://github.com/gamai-io/gamai-guard) — multilingual prompt-injection cascade (29/30 blind attacks, 0/10 FP; 6,900 corpus 79.6%/0.1%).
@@ -53,11 +53,12 @@ Core stays domain-agnostic; verticals consume it as a library or a service.
 
 ## Start here
 
+- [External audit RFP (draft)](https://github.com/gamai-io/proofgate-runtime/blob/main/docs/external-audit-rfp.md) — scope, deliverables, rules of engagement.
 - [Security audit (internal, 2026-11-05)](https://github.com/gamai-io/.github/blob/main/security/2026-11-05-audit.md) — internal review, **not** an independent external audit.
 
 - [Full benchmark suite](https://gamai.io/benchmarks) — why, how, reproduce.
-- [ProofGate Runtime v0.1](https://github.com/gamai-io/proofgate-runtime) — start here: claims, receipts, MCP.
+- [ProofGate Runtime v0.2](https://github.com/gamai-io/proofgate-runtime) — start here: claims, receipts, MCP.
 - [Open source overview](https://gamai.io/opensource) — clone per repo.
 - [Security policy](SECURITY.md) — report vulnerabilities to security@gamai.io.
 
-License: Apache-2.0 for core repositories; some companion repos are MIT — see `LICENSE` in each repository. `proofgate-runtime` v0.1 is not independently audited.
+License: Apache-2.0 for core repositories; some companion repos are MIT — see `LICENSE` in each repository. `proofgate-runtime` v0.2 is not independently audited.
