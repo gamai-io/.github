@@ -37,7 +37,8 @@ flowchart LR
 - **Case study** — [`floor-copilot`](https://github.com/gamai-io/floor-copilot) — invoice intake with 17% VAT gate; synthetic 100-case gate benchmark: 40/40 valid, 30/30 arithmetic errors caught, 0 false verifications; plus 15 GAMA-style invoices with real Tesseract OCR: 8/8 valid, 4/4 arithmetic errors caught, 0 false verifications. OCR name mismatch remains a documented gap.
 
 ### Experimental
-`gama-lang`, `agentmujo-training`, `gama-hifz`, `gamai-evals`, `polymorph`, `dag`, `risk-calib`, `gamai-skills`.
+`gama-lang`, `agentmujo-training`, `gamai-evals`, `polymorph` live on this org.
+Side projects moved to [`renatoschust-dot`](https://github.com/renatoschust-dot): `gama-hifz`, `dag`, `risk-calib`, `gamai-skills`, `polyscope`, `gama-lumi-bench`.
 
 ### Legacy / not recommended
 `gama-shard`, `gama-retrieval`, `gama-agent` — kept for reference; prefer the product paths above.
@@ -57,6 +58,7 @@ Core stays domain-agnostic; verticals consume it as a library or a service.
 - [Security audit (internal, 2026-11-05)](https://github.com/gamai-io/.github/blob/main/security/2026-11-05-audit.md) — internal review, **not** an independent external audit.
 
 - [Full benchmark suite](https://gamai.io/benchmarks) — why, how, reproduce.
+- [LUMI-G benchmark (2026-11-06)](https://github.com/gamai-io/gamai-evals/blob/main/docs/LUMI_BENCHMARK_2026-11-06.md) — grounding and tool-calling numbers with protocol and limitations.
 - [ProofGate Runtime v0.2](https://github.com/gamai-io/proofgate-runtime) — start here: claims, receipts, MCP.
 - [Open source overview](https://gamai.io/opensource) — clone per repo.
 - [Security policy](SECURITY.md) — report vulnerabilities to security@gamai.io.
