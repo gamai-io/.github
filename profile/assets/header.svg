@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="260" viewBox="0 0 900 260" role="img" aria-labelledby="t d" preserveAspectRatio="xMidYMid meet" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace">
+  <title id="t">gamAI</title>
+  <desc id="d">gamAI — trust layer for AI agents. Evidence before assertion. Decidable, isolated, provable.</desc>
+  <defs>
+    <linearGradient id="plate" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#02060f"/>
+      <stop offset="0.55" stop-color="#01040a"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.46" r="0.62">
+      <stop offset="0" stop-color="#00A3FF" stop-opacity="0.18"/>
+      <stop offset="0.45" stop-color="#00A3FF" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="0.5" cy="0.5" r="0.78">
+      <stop offset="0.55" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.6"/>
+    </radialGradient>
+    <linearGradient id="sweepBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#000000"/>
+      <stop offset="0.38" stop-color="#000000"/>
+      <stop offset="0.50" stop-color="#ffffff"/>
+      <stop offset="0.62" stop-color="#000000"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+    <mask id="sweepMask" maskUnits="userSpaceOnUse" x="0" y="0" width="900" height="260">
+      <rect x="0" y="0" width="300" height="260" fill="url(#sweepBand)">
+        <animateTransform attributeName="transform" type="translate" values="-320 0; 960 0; 960 0" keyTimes="0; 0.42; 1" dur="5.2s" repeatCount="indefinite"/>
+      </rect>
+    </mask>
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00A3FF" stop-opacity="0"/>
+      <stop offset="0.16" stop-color="#00A3FF" stop-opacity="0.85"/>
+      <stop offset="0.50" stop-color="#4FC3FF" stop-opacity="0.95"/>
+      <stop offset="0.84" stop-color="#0066CC" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#0066CC" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ruleHi" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="ruleClip">
+      <rect x="196" y="162" width="508" height="3" rx="1.5"/>
+    </clipPath>
+    <pattern id="scan" width="4" height="3" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="4" height="1" fill="#000000"/>
+    </pattern>
+    <filter id="glow" x="-25%" y="-60%" width="150%" height="220%">
+      <feGaussianBlur stdDeviation="4.5" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softglow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="9" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="260" fill="url(#plate)"/>
+  <rect width="900" height="260" fill="url(#halo)"/>
+  <rect width="900" height="260" fill="url(#scan)" opacity="0.55"/>
+  <rect width="900" height="260" fill="url(#vignette)"/>
+
+  <g opacity="0.30" stroke="#00A3FF" stroke-width="1">
+    <line x1="0" y1="40" x2="900" y2="40" stroke-opacity="0.10"/>
+    <line x1="0" y1="220" x2="900" y2="220" stroke-opacity="0.10"/>
+    <line x1="60" y1="0" x2="60" y2="260" stroke-opacity="0.06"/>
+    <line x1="840" y1="0" x2="840" y2="260" stroke-opacity="0.06"/>
+  </g>
+
+  <g mask="url(#sweepMask)" opacity="0.10">
+    <rect width="900" height="260" fill="#4FC3FF"/>
+  </g>
+
+  <g filter="url(#softglow)" opacity="0.55">
+    <circle cx="450" cy="120" r="86" fill="none" stroke="#00A3FF" stroke-width="1" stroke-opacity="0.35"/>
+    <circle cx="450" cy="120" r="118" fill="none" stroke="#00A3FF" stroke-width="1" stroke-opacity="0.16"/>
+  </g>
+
+  <text x="450" y="118" text-anchor="middle" fill="#EAF6FF" font-size="62" font-weight="700" letter-spacing="6" textLength="330" lengthAdjust="spacing" filter="url(#glow)">gamAI</text>
+
+  <text x="450" y="150" text-anchor="middle" fill="#7FC9FF" font-size="14" letter-spacing="3.2" textLength="430" lengthAdjust="spacing">TRUST LAYER FOR AI AGENTS</text>
+
+  <g clip-path="url(#ruleClip)">
+    <rect x="196" y="162" width="508" height="3" rx="1.5" fill="url(#rule)"/>
+    <rect x="196" y="162" width="120" height="3" rx="1.5" fill="url(#ruleHi)" opacity="0.9">
+      <animateTransform attributeName="transform" type="translate" values="-140 0; 560 0; 560 0" keyTimes="0; 0.5; 1" dur="4.4s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <text x="450" y="196" text-anchor="middle" fill="#9FB6CC" font-size="12.5" letter-spacing="1.6" textLength="520" lengthAdjust="spacing">decidable before · isolated while · provable after</text>
+
+  <g font-size="11" letter-spacing="1.4" fill="#5E7A94">
+    <text x="450" y="228" text-anchor="middle" textLength="360" lengthAdjust="spacing">evidence before assertion · measured, not marketed</text>
+  </g>
+
+  <circle cx="450" cy="243" r="2.6" fill="#00A3FF">
+    <animate attributeName="opacity" values="1;0.15;1" dur="2.2s" repeatCount="indefinite"/>
+  </circle>
+</svg>

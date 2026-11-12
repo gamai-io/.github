@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="150" viewBox="0 0 900 150" role="img" aria-labelledby="st sd" preserveAspectRatio="xMidYMid meet" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace">
+  <title id="st">gamAI — organizacija</title>
+  <desc id="sd">17 javnih repozitorija, 5 flagship projekata, Python, Apache-2.0.</desc>
+  <defs>
+    <linearGradient id="splate" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#04080f"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+    <linearGradient id="sbar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00A3FF"/>
+      <stop offset="1" stop-color="#0066CC" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="150" rx="10" fill="url(#splate)" stroke="#00A3FF" stroke-opacity="0.22"/>
+
+  <g font-size="11" letter-spacing="1.6" fill="#5E7A94">
+    <text x="34" y="34" textLength="150" lengthAdjust="spacing">ORGANIZATION</text>
+  </g>
+
+  <g>
+    <text x="34" y="72" fill="#EAF6FF" font-size="30" font-weight="700" textLength="60" lengthAdjust="spacing">17</text>
+    <text x="34" y="94" fill="#7FC9FF" font-size="11.5" letter-spacing="1.2" textLength="120" lengthAdjust="spacing">javnih repoa</text>
+
+    <text x="234" y="72" fill="#EAF6FF" font-size="30" font-weight="700" textLength="30" lengthAdjust="spacing">5</text>
+    <text x="234" y="94" fill="#7FC9FF" font-size="11.5" letter-spacing="1.2" textLength="130" lengthAdjust="spacing">flagship projekata</text>
+
+    <text x="434" y="72" fill="#EAF6FF" font-size="30" font-weight="700" textLength="90" lengthAdjust="spacing">100%</text>
+    <text x="434" y="94" fill="#7FC9FF" font-size="11.5" letter-spacing="1.2" textLength="150" lengthAdjust="spacing">Python · Apache-2.0</text>
+
+    <text x="634" y="72" fill="#EAF6FF" font-size="30" font-weight="700" textLength="60" lengthAdjust="spacing">3</text>
+    <text x="634" y="94" fill="#7FC9FF" font-size="11.5" letter-spacing="1.2" textLength="200" lengthAdjust="spacing">invarijante u svakom repou</text>
+  </g>
+
+  <rect x="34" y="118" width="832" height="3" rx="1.5" fill="url(#sbar)"/>
+</svg>

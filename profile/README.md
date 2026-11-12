@@ -1,66 +1,97 @@
-# gamAI — trust layer for AI agents
+<!-- gamai-matrix-header-v1 -->
+<div align="center">
 
-Agents that claim success for work that failed are a liability. gamAI makes each step **decidable before the model runs**, **isolated while it runs**, and **provable after it runs**.
+<img src="./assets/header.svg" alt="gamAI — trust layer for AI agents" width="100%" />
 
-🌐 [gamai.io](https://gamai.io) · 📊 [Benchmarks](https://gamai.io/benchmarks) · 📦 [Open source](https://gamai.io/opensource) · ✉️ info@gamai.io
+<a href="https://github.com/gamai-io">
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=3200&pause=900&color=4FC3FF&center=true&vCenter=true&width=760&lines=evidence+before+assertion;decidable+before+%C2%B7+isolated+while+%C2%B7+provable+after;measured%2C+not+marketed" alt="gamAI" />
+</a>
 
-## Architecture
+<p>
+  <a href="https://github.com/gamai-io?tab=repositories"><img src="https://img.shields.io/badge/repos-17-00A3FF?style=flat-square&labelColor=02060f" alt="repos" /></a>
+  <a href="https://github.com/gamai-io/proofgate-runtime"><img src="https://img.shields.io/badge/proofgate-runtime-4FC3FF?style=flat-square&labelColor=02060f" alt="proofgate" /></a>
+  <a href="https://github.com/gamai-io/evidence-first-agent-runtime"><img src="https://img.shields.io/badge/evidence--first-runtime-4FC3FF?style=flat-square&labelColor=02060f" alt="efr" /></a>
+  <img src="https://img.shields.io/badge/python-3.11%2B-00A3FF?style=flat-square&labelColor=02060f&logo=python&logoColor=white" alt="python" />
+  <img src="https://img.shields.io/badge/license-Apache--2.0-0066CC?style=flat-square&labelColor=02060f" alt="license" />
+</p>
 
-```mermaid
-flowchart LR
-  U[User / API key] --> G{Gate<br/>deterministic}
-  G -- block --> X[Refuse + reason]
-  G -- cache --> C[Cached answer]
-  G -- sql/math --> DB[(DB / calc)]
-  G -- agent --> M[Model<br/>OpenAI-compatible]
-  M --> T[Tools: web, files,<br/>python sandbox, SQL]
-  T --> S[Isolation<br/>srt / bwrap / microVM]
-  S --> E[Evidence<br/>JSONL + SHA-256 + receipts]
-  E --> V[Verify<br/>claims vs observed state]
-  V --> U
-```
+<img src="./assets/divider.svg" alt="" width="100%" />
 
-- **Gate** — risk, cache, math and routing decided without spending tokens.
-- **Motor** — any OpenAI-compatible endpoint (hosted or local vLLM/Ollama).
-- **Tools** — MCP servers, function calling, sandboxed execution.
-- **Evidence** — append-only logs, hashes, receipts; “done” requires proof.
+</div>
 
-## Status (2026-11-05)
+## Šta je gamAI
 
-### Product
-- **ProofGate Runtime v0.2** — [`proofgate-runtime`](https://github.com/gamai-io/proofgate-runtime) · [PyPI](https://pypi.org/project/proofgate-runtime/) — claim verification (`confirmed/refuted/unverified`), signed receipts (HMAC-SHA256; unsigned rejected by default), lite injection pre-filter, CLI and MCP server. Stdlib only. *Not independently audited; PyPI 0.2.0: `pip install proofgate-runtime`. External audit RFP is open.*
-- **SIGIL/1** — [`sigil`](https://github.com/gamai-io/sigil) — proof-carrying execution: grants, receipts, anchor, MCP/A2A middleware; 6-container production reference.
-- **Measurement** — [`crossnode-bench`](https://github.com/gamai-io/crossnode-bench) — 25,600 controlled claim-vs-truth trials; 93.75% pass; 6.25% planted lies flagged; 0 false-success on read/action/cross. *Controlled detection test, not a field rate.* · [dataset v0.1.0](https://github.com/gamai-io/crossnode-bench/tree/main/dataset) · [preprint](https://github.com/gamai-io/crossnode-bench/blob/main/paper/preprint.pdf)
-- **Guard** — [`gamai-guard`](https://github.com/gamai-io/gamai-guard) — multilingual prompt-injection cascade (29/30 blind attacks, 0/10 FP; 6,900 corpus 79.6%/0.1%).
-- **Isolation** — [`gama-sandbox`](https://github.com/gamai-io/gama-sandbox) + [`gnp-trust`](https://github.com/gamai-io/gnp-trust) — srt/bwrap/microVM isolation, node token gate, leases with fencing.
-- **Deterministic core** — [`dsc`](https://github.com/gamai-io/dsc), [`gama-fastpath`](https://github.com/gamai-io/gama-fastpath), [`gama-offline`](https://github.com/gamai-io/gama-offline) — normalize, cache, risk gate, money math.
-- **Case study** — [`floor-copilot`](https://github.com/renatoschust-dot/floor-copilot) (moved to the personal account) — invoice intake with 17% VAT gate; synthetic 100-case gate benchmark: 40/40 valid, 30/30 arithmetic errors caught, 0 false verifications; plus 15 GAMA-style invoices with real Tesseract OCR: 8/8 valid, 4/4 arithmetic errors caught, 0 false verifications. OCR name mismatch remains a documented gap.
+gamAI je **trust layer za AI agente**: sloj koji odlučuje _prije_ izvršenja, izoluje _tokom_ izvršenja i dokazuje _poslije_ izvršenja. Agent koji tvrdi da je posao završen — a nije — je najskuplji bug u produkciji. Naš odgovor nije bolji prompt, nego **provjerljiv dokaz**.
 
-### Experimental
-`gama-lang`, `agentmujo-training`, `gamai-evals`, `polymorph` live on this org.
-Side projects moved to [`renatoschust-dot`](https://github.com/renatoschust-dot): `gama-hifz`, `dag`, `risk-calib`, `gamai-skills`, `polyscope`, `gama-lumi-bench`.
+Tri invarijante koje svaki repo u organizaciji poštuje:
 
-### Legacy / not recommended
-`gama-shard`, `gama-retrieval`, `gama-agent` — kept for reference; prefer the product paths above.
+| Invarijanta          | Značenje                                                             | Gdje se provodi                         |
+| -------------------- | -------------------------------------------------------------------- | --------------------------------------- |
+| **Decidable before** | svaka akcija ima odluku prije izvršenja (allow / deny / needs-proof) | `proofgate-runtime`, `dsc`              |
+| **Isolated while**   | izvršenje u ograđenom prostoru (srt / bwrap / microVM)               | `gama-sandbox`, `sigil`                 |
+| **Provable after**   | tvrdnja se poredi sa stvarnim stanjem, rezultat je potpisan          | `evidence-first-agent-runtime`, `sigil` |
 
-Core stays domain-agnostic; verticals consume it as a library or a service.
+<div align="center"><img src="./assets/divider.svg" alt="" width="100%" /></div>
 
-## Principles
+## Kako radi
 
-1. **Evidence before assertion** — every claim is checkable.
-2. **Least privilege** — destructive actions gated; no secrets in code or logs.
-3. **Determinism where possible** — same input, same bytes, on every node.
-4. **Measured, not marketed** — benchmarks state method and reproduction.
+<div align="center"><img src="./assets/terminal.svg" alt="gamAI pipeline: gate → model → tools → isolation → evidence → verify" width="100%" /></div>
 
-## Start here
+Claim ulazi u gate. Gate odlučuje. Model se izvršava u izolaciji sa ograničenim alatima. Sve što se desilo ide u evidence log (JSONL + SHA-256). Verifikacija poredi tvrdnju sa opservacijom — i ako se ne slažu, tvrdnja je **refuted**, ne "vjerovatno tačna".
 
-- [External audit RFP (draft)](https://github.com/gamai-io/proofgate-runtime/blob/main/docs/external-audit-rfp.md) — scope, deliverables, rules of engagement.
-- [Security audit (internal, 2026-11-05)](https://github.com/gamai-io/.github/blob/main/security/2026-11-05-audit.md) — internal review, **not** an independent external audit.
+<div align="center"><img src="./assets/divider.svg" alt="" width="100%" /></div>
 
-- [Full benchmark suite](https://gamai.io/benchmarks) — why, how, reproduce.
-- [LUMI-G benchmark (2026-11-06)](https://github.com/gamai-io/gamai-evals/blob/main/docs/LUMI_BENCHMARK_2026-11-06.md) — grounding and tool-calling numbers with protocol and limitations.
-- [ProofGate Runtime v0.2](https://github.com/gamai-io/proofgate-runtime) — start here: claims, receipts, MCP.
-- [Open source overview](https://gamai.io/opensource) — clone per repo.
-- [Security policy](SECURITY.md) — report vulnerabilities to security@gamai.io.
+## Ekosistem
 
-License: Apache-2.0 for core repositories; some companion repos are MIT — see `LICENSE` in each repository. `proofgate-runtime` v0.2 is not independently audited.
+<div align="center"><img src="./assets/ecosystem.svg" alt="gamAI slojevi: core, proof, measurement, verticals" width="100%" /></div>
+
+<div align="center"><img src="./assets/divider.svg" alt="" width="100%" /></div>
+
+## Flagship
+
+| Repo                                                                                         | Šta rješava                                              | Dokaz                                          |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------------- |
+| [**proofgate-runtime**](https://github.com/gamai-io/proofgate-runtime)                       | gate koji odlučuje prije akcije; fail-closed po defaultu | deterministički, bez LLM-a u kritičnoj putanji |
+| [**evidence-first-agent-runtime**](https://github.com/gamai-io/evidence-first-agent-runtime) | runtime gdje je dokaz primarni artefakt, ne log          | evidence chain + verifikacija tvrdnji          |
+| [**sigil**](https://github.com/gamai-io/sigil-public)                                        | potpisivanje i verifikacija receipt-a                    | SHA-256 chain, offline verifikacija            |
+| [**crossnode-bench**](https://github.com/gamai-io/crossnode-bench-public)                    | mjerenje pouzdanosti agenata kroz više čvorova           | javni dataset + reproducibilni runovi          |
+| [**gamai-guard**](https://github.com/gamai-io/gamai-guard-public)                            | politike i granice za toolske pozive                     | policy engine, audit trail                     |
+
+<div align="center"><img src="./assets/divider.svg" alt="" width="100%" /></div>
+
+## Principi
+
+- **Mjereno, ne marketinški.** Svaka tvrdnja u README-u ima run ili test iza sebe.
+- **Fail-closed.** Ako dokaz nema, odgovor je `unverified` — nikad `ok`.
+- **Bez magije.** Determinitički sloj je odvojen od modela; model je zamjenjiv dio.
+- **Lokalno prvo.** Radi bez clouda; cloud je opcija, ne uslov.
+- **Otvoreno.** Javni repoi, javni benchmark, javni rezultati — uključujući one koji nam ne idu u prilog.
+
+<div align="center"><img src="./assets/divider.svg" alt="" width="100%" /></div>
+
+## Stack
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=python,fastapi,docker,linux,git,githubactions,postgres,redis,bash&theme=dark" alt="stack" />
+</p>
+
+<div align="center"><img src="./assets/stats.svg" alt="gamAI organizacija: 17 repoa, 5 flagship, Python, Apache-2.0" width="100%" /></div>
+
+<div align="center"><img src="./assets/divider.svg" alt="" width="100%" /></div>
+
+## Kontakt
+
+- Web: **gamai.io**
+- Organizacija: [github.com/gamai-io](https://github.com/gamai-io)
+- Sigurnost: vidi [SECURITY.md](https://github.com/gamai-io/.github/blob/main/SECURITY.md)
+
+<!-- gamai-matrix-footer-v1 -->
+<div align="center">
+
+<img src="./assets/divider.svg" alt="" width="100%" />
+
+<sub><code>evidence before assertion</code> · <code>decidable before · isolated while · provable after</code></sub>
+
+<sub>© gamAI · trust layer for AI agents</sub>
+
+</div>

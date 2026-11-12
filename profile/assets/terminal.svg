@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-labelledby="tt dd" preserveAspectRatio="xMidYMid meet" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace">
+  <title id="tt">gamAI pipeline</title>
+  <desc id="dd">Terminal prikaz: claim ulazi u gate, model se izvrsava u izolaciji, izlaz je evidence i verifikacija.</desc>
+  <defs>
+    <linearGradient id="tplate" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#04080f"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+    <linearGradient id="tbar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0a1524"/>
+      <stop offset="1" stop-color="#050b14"/>
+    </linearGradient>
+    <filter id="tglow" x="-20%" y="-40%" width="140%" height="180%">
+      <feGaussianBlur stdDeviation="2.6" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="tscan" width="4" height="3" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="4" height="1" fill="#000000"/>
+    </pattern>
+  </defs>
+
+  <rect width="900" height="300" rx="12" fill="url(#tplate)"/>
+  <rect width="900" height="34" rx="12" fill="url(#tbar)"/>
+  <rect y="22" width="900" height="12" fill="url(#tbar)"/>
+  <line x1="0" y1="34" x2="900" y2="34" stroke="#00A3FF" stroke-opacity="0.28" stroke-width="1"/>
+
+  <circle cx="22" cy="17" r="5" fill="#FF5F57" fill-opacity="0.85"/>
+  <circle cx="42" cy="17" r="5" fill="#FEBC2E" fill-opacity="0.85"/>
+  <circle cx="62" cy="17" r="5" fill="#28C840" fill-opacity="0.85"/>
+  <text x="450" y="21" text-anchor="middle" fill="#5E7A94" font-size="11.5" letter-spacing="1.6" textLength="300" lengthAdjust="spacing">gamai — proofgate runtime</text>
+
+  <rect y="34" width="900" height="266" fill="url(#tscan)" opacity="0.5"/>
+
+  <g font-size="13.5" letter-spacing="0.2">
+    <text x="26" y="66" fill="#4FC3FF">$</text>
+    <text x="46" y="66" fill="#D6E8F7" textLength="470" lengthAdjust="spacing">proofgate check --claims claims.json</text>
+
+    <text x="26" y="94" fill="#5E7A94">gate</text>
+    <text x="120" y="94" fill="#9FB6CC" textLength="330" lengthAdjust="spacing">risk=low  cache=miss  math=ok</text>
+    <text x="470" y="94" fill="#28C840">decided</text>
+
+    <text x="26" y="120" fill="#5E7A94">model</text>
+    <text x="120" y="120" fill="#9FB6CC" textLength="300" lengthAdjust="spacing">openai-compatible · vllm</text>
+    <text x="470" y="120" fill="#4FC3FF">routed</text>
+
+    <text x="26" y="146" fill="#5E7A94">tools</text>
+    <text x="120" y="146" fill="#9FB6CC" textLength="360" lengthAdjust="spacing">web · files · python · sql</text>
+    <text x="470" y="146" fill="#4FC3FF">bounded</text>
+
+    <text x="26" y="172" fill="#5E7A94">isolation</text>
+    <text x="120" y="172" fill="#9FB6CC" textLength="330" lengthAdjust="spacing">srt / bwrap / microVM</text>
+    <text x="470" y="172" fill="#28C840">sealed</text>
+
+    <text x="26" y="198" fill="#5E7A94">evidence</text>
+    <text x="120" y="198" fill="#9FB6CC" textLength="400" lengthAdjust="spacing">jsonl · sha-256 · receipts</text>
+    <text x="470" y="198" fill="#28C840">signed</text>
+
+    <text x="26" y="224" fill="#5E7A94">verify</text>
+    <text x="120" y="224" fill="#9FB6CC" textLength="380" lengthAdjust="spacing">claims vs observed state</text>
+    <text x="470" y="224" fill="#28C840">confirmed</text>
+  </g>
+
+  <line x1="26" y1="242" x2="874" y2="242" stroke="#00A3FF" stroke-opacity="0.18" stroke-width="1"/>
+
+  <g font-size="12.5">
+    <text x="26" y="266" fill="#4FC3FF">$</text>
+    <text x="46" y="266" fill="#D6E8F7" textLength="300" lengthAdjust="spacing">proofgate verify --strict</text>
+    <text x="360" y="266" fill="#28C840" filter="url(#tglow)">0 refuted · 0 unverified</text>
+  </g>
+
+  <rect x="26" y="278" width="9" height="14" fill="#4FC3FF">
+    <animate attributeName="opacity" values="1;0;1" dur="1.15s" repeatCount="indefinite"/>
+  </rect>
+</svg>
