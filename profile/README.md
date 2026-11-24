@@ -27,3 +27,12 @@ Index of all of them: [VERIFY.md](VERIFY.md). If a row does not run, the claim i
 - **Limits:** each repo states what it does *not* prove — see `LIMITS.md` where relevant.
 
 Apache-2.0 unless stated otherwise.
+
+## Who runs this
+
+gamAI is the research and product arm of **GAMA TRADE d.o.o.**, Žabljak bb, 74230 Usora,
+Bosnia and Herzegovina ([gamatrade.ba](https://gamatrade.ba)): 3 employees, SME, EU-adjacent,
+no external funding. The AI systems here are built and operated by that company, not by a
+separate legal entity.
+
+Contact: renato@gamatrade.ba · [gamai.io](https://gamai.io)
