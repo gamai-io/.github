@@ -19,17 +19,17 @@
   </g>
 
   <g>
-    <text x="34" y="72" fill="#EAF6FF" font-size="30" font-weight="700" textLength="60" lengthAdjust="spacing">17</text>
+    <text x="34" y="72" fill="#EAF6FF" font-size="30" font-weight="700" textLength="60" lengthAdjust="spacing">27</text>
     <text x="34" y="94" fill="#7FC9FF" font-size="11.5" letter-spacing="1.2" textLength="120" lengthAdjust="spacing">javnih repoa</text>
 
     <text x="234" y="72" fill="#EAF6FF" font-size="30" font-weight="700" textLength="30" lengthAdjust="spacing">5</text>
     <text x="234" y="94" fill="#7FC9FF" font-size="11.5" letter-spacing="1.2" textLength="130" lengthAdjust="spacing">flagship projekata</text>
 
-    <text x="434" y="72" fill="#EAF6FF" font-size="30" font-weight="700" textLength="90" lengthAdjust="spacing">100%</text>
+    <text x="434" y="72" fill="#EAF6FF" font-size="30" font-weight="700" textLength="150" lengthAdjust="spacing">MIT · Apache-2.0</text>
     <text x="434" y="94" fill="#7FC9FF" font-size="11.5" letter-spacing="1.2" textLength="150" lengthAdjust="spacing">Python · Apache-2.0</text>
 
-    <text x="634" y="72" fill="#EAF6FF" font-size="30" font-weight="700" textLength="60" lengthAdjust="spacing">3</text>
-    <text x="634" y="94" fill="#7FC9FF" font-size="11.5" letter-spacing="1.2" textLength="200" lengthAdjust="spacing">invarijante u svakom repou</text>
+    <text x="634" y="72" fill="#EAF6FF" font-size="30" font-weight="700" textLength="60" lengthAdjust="spacing">0</text>
+    <text x="634" y="94" fill="#7FC9FF" font-size="11.5" letter-spacing="1.2" textLength="230" lengthAdjust="spacing">otvorenih sigurnosnih nalaza</text>
   </g>
 
   <rect x="34" y="118" width="832" height="3" rx="1.5" fill="url(#sbar)"/>
